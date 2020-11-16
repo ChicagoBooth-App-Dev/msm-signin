@@ -34,6 +34,28 @@
   <div class="container">
     <%= render "shared/flashes" %>
 
+    <ul>
+        <li>
+          <% if session[:user_id] != nil %>
+            <a href="/user_sign_out"> Sign out</a> 
+          <% else %>
+            <a href="/user_sign_in"> Sign in</a> 
+          <% end %>
+        </li>
+        
+        <li>
+          <a href="/user_sign_up">
+            Sign up
+          </a>
+        </li>
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+    </ul>
+
+
     <%= yield %>
   </div>
 
