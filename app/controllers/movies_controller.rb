@@ -1,6 +1,4 @@
 class MoviesController < ApplicationController
-  
-  
   def index
     matching_movies = Movie.all
 
@@ -27,6 +25,7 @@ class MoviesController < ApplicationController
     the_movie.director_id = params.fetch("query_director_id")
     the_movie.description = params.fetch("query_description")
     the_movie.image = params.fetch("query_image")
+    the_movie.bookmarks_count = params.fetch("query_bookmarks_count")
 
     if the_movie.valid?
       the_movie.save
@@ -46,6 +45,7 @@ class MoviesController < ApplicationController
     the_movie.director_id = params.fetch("query_director_id")
     the_movie.description = params.fetch("query_description")
     the_movie.image = params.fetch("query_image")
+    the_movie.bookmarks_count = params.fetch("query_bookmarks_count")
 
     if the_movie.valid?
       the_movie.save

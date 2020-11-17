@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
 
+  # Routes for the Movie resource:
+
+  # CREATE
+  post("/insert_movie", { :controller => "movies", :action => "create" })
+          
+  # READ
+  get("/movies", { :controller => "movies", :action => "index" })
+  
+  get("/movies/:path_id", { :controller => "movies", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_movie/:path_id", { :controller => "movies", :action => "update" })
+  
+  # DELETE
+  get("/delete_movie/:path_id", { :controller => "movies", :action => "destroy" })
+
+  #------------------------------
+
   get("/", { :controller => "user_authentication", :action => "home" })
 
   # Routes for the Bookmark resource:
@@ -64,25 +83,6 @@ Rails.application.routes.draw do
   
   # DELETE
   get("/delete_character/:path_id", { :controller => "characters", :action => "destroy" })
-
-  #------------------------------
-
-  # Routes for the Movie resource:
-
-  # CREATE
-  post("/insert_movie", { :controller => "movies", :action => "create" })
-          
-  # READ
-  get("/movies", { :controller => "movies", :action => "index" })
-  
-  get("/movies/:path_id", { :controller => "movies", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_movie/:path_id", { :controller => "movies", :action => "update" })
-  
-  # DELETE
-  get("/delete_movie/:path_id", { :controller => "movies", :action => "destroy" })
 
   #------------------------------
 

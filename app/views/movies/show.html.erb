@@ -62,6 +62,13 @@
       </dd>
 
       <dt>
+        Bookmarks count
+      </dt>
+      <dd>
+        <%= @the_movie.bookmarks_count %>
+      </dd>
+
+      <dt>
         Created at
       </dt>
       <dd>
@@ -134,6 +141,14 @@
         </label>
 
         <input type="text" id="image_box" name="query_image" value="<%= @the_movie.image %>">
+      </div>
+
+      <div>
+        <label for="bookmarks_count_box">
+          Bookmarks count
+        </label>
+
+        <input type="text" id="bookmarks_count_box" name="query_bookmarks_count" value="<%= @the_movie.bookmarks_count %>">
       </div>
 
       <button>
