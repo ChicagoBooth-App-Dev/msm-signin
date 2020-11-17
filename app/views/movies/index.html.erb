@@ -83,9 +83,6 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Title
@@ -93,10 +90,6 @@
 
         <th>
           Year
-        </th>
-
-        <th>
-          Duration
         </th>
 
         <th>
@@ -129,9 +122,7 @@
 
       <% @list_of_movies.each do |a_movie| %>
       <tr>
-        <td>
-          <%= a_movie.id %>
-        </td>
+
 
         <td>
           <%= a_movie.title %>
@@ -139,10 +130,6 @@
 
         <td>
           <%= a_movie.year %>
-        </td>
-
-        <td>
-          <%= a_movie.duration %>
         </td>
 
         <td>
@@ -154,7 +141,7 @@
         </td>
 
         <td>
-          <%= a_movie.image %>
+          <img src = "<%= a_movie.image %>">
         </td>
 
         <td>

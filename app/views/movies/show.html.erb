@@ -17,6 +17,31 @@
         </a>
       </div>
     </div>
+<hr>
+
+  <% if session[:user_id] != nil %>
+    <% if @list_of_bookmarks.map_relation_to_array(:movie_id).include? @the_movie.id %>
+        <a href="/delete_bookmark/<%= @list_of_bookmarks.first.id%>">
+          Un-bookmark
+        </a>
+    <% else %>
+      
+    <form action="/insert_bookmark" method="post">
+      <div>
+        <input type="hidden" id="user_id_box" name="query_user_id" value = <%= session[:user_id] %>>
+      </div>
+      <div>
+        <input type="hidden" id="movie_id_box" name="query_movie_id" value = <%= @the_movie.id %>>
+      </div>
+
+      <button>
+        Bookmark this movie!
+      </button>
+    </form>
+
+    <% end %>
+  <% end %>
+
 
     <dl>
       <dt>
@@ -58,7 +83,7 @@
         Image
       </dt>
       <dd>
-        <%= @the_movie.image %>
+        <img src = '<%= @the_movie.image %>'>
       </dd>
 
       <dt>

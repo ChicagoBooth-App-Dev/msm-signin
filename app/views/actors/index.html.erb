@@ -59,9 +59,6 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Name
@@ -93,9 +90,6 @@
 
       <% @list_of_actors.each do |an_actor| %>
       <tr>
-        <td>
-          <%= an_actor.id %>
-        </td>
 
         <td>
           <%= an_actor.name %>
@@ -110,7 +104,7 @@
         </td>
 
         <td>
-          <%= an_actor.image %>
+          <img src = <%= an_actor.image %>>
         </td>
 
         <td>
