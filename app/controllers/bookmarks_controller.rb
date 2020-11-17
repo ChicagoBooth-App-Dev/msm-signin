@@ -4,6 +4,10 @@ class BookmarksController < ApplicationController
 
     @list_of_bookmarks = matching_bookmarks.order({ :created_at => :desc })
 
+    user_id = session.fetch('user_id')
+
+    @user_object = User.where({ :id => user_id}).first
+
     render({ :template => "bookmarks/index.html.erb" })
   end
 
