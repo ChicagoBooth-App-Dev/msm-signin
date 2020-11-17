@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List <%= @user_object.first_name + ' ' + @user_object.last_name + "'s" %> bookmarks
+      <%= @user_object.fullname + "'s" %> bookmarks
     </h1>
     <p><%=  %></p>
   </div>
@@ -11,31 +11,24 @@
 
 <div>
   <div>
-    <h2>
-      Add a new bookmark
-    </h2>
-
     <form action="/insert_bookmark" method="post">
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
+        <input type="hidden" id="user_id_box" name="query_user_id" value = <%= @user_object.id %>>
       </div>
 
-      <div>
-        <label for="movie_id_box">
-          Movie
-        </label>
-
-        <input type="text" id="movie_id_box" name="query_movie_id">
-      </div>
+      <select name="query_movie_id" id="movie_id_box">
+        <% Movie.all.each do |a_movie| %>
+          <option value="<%= a_movie.id %>">
+            <%= a_movie.title %>
+          </option>
+        <% end%>
+      </select>
 
       <button>
-        Create bookmark
+        Bookmark this movie!
       </button>
     </form>
+
   </div>
 </div>
 
@@ -75,11 +68,11 @@
         </td>
 
         <td>
-          <%= a_bookmark.user_id %>
+          <%= a_bookmark.user.fullname %>
         </td>
 
         <td>
-          <%= a_bookmark.movie_id %>
+          <%= a_bookmark.movie.title %>
         </td>
 
         <td>

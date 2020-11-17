@@ -14,4 +14,13 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_many(:bookmarks, { :class_name => "Bookmark", :foreign_key => "user_id", :dependent => :destroy })
+
+  def fullname
+    full_name = self.first_name.capitalize + ' ' + self.last_name.capitalize
+    return full_name
+  end
+
+
 end
